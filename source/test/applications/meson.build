@@ -1,0 +1,2 @@
+subdir('ConvDiff')
+subdir('Euler')

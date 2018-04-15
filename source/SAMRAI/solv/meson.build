@@ -60,8 +60,7 @@ solv_fortran_sources =['fortran/solv_cartesianrobinbchelper2d.f',
 
 solv = library('SAMRAI_solv', sources:[solv_fortran_sources, solv_sources],
 	include_directories:SAMRAI_inc,
-	dependencies: [SAMRAI_hier_dep, SAMRAI_pdat_dep, SAMRAI_math_dep, SAMRAI_glob_dep],
-	link_args:['-lgfortran']
+	dependencies: [SAMRAI_hier_dep, SAMRAI_pdat_dep, SAMRAI_math_dep, SAMRAI_glob_dep]
 	)
 
 SAMRAI_solv_dep = declare_dependency(link_with:solv,

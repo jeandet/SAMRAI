@@ -223,8 +223,7 @@ pdat_fortran_sources = m4_generator.process(
 
 pdat = library('SAMRAI_pdat', sources:[pdat_fortran_sources, pdat_sources],
 	include_directories:SAMRAI_inc,
-	dependencies: [SAMRAI_xfer_dep, SAMRAI_tbox_dep, SAMRAI_hier_dep, SAMRAI_glob_dep],
-	link_args:['-lgfortran']
+	dependencies: [SAMRAI_xfer_dep, SAMRAI_tbox_dep, SAMRAI_hier_dep, SAMRAI_glob_dep]
 	)
 
 SAMRAI_pdat_dep = declare_dependency(link_with:pdat,

@@ -136,4 +136,4 @@ hier = library('SAMRAI_hier', sources:hier_sources,
 	dependencies:[SAMRAI_tbox_dep, SAMRAI_glob_dep]
 	)
 
-SAMRAI_hier_dep = declare_dependency(link_with:hier, dependencies:[SAMRAI_tbox_dep, SAMRAI_glob_dep])
+SAMRAI_hier_dep = declare_dependency(include_directories:SAMRAI_inc, link_with:hier, dependencies:[SAMRAI_tbox_dep, SAMRAI_glob_dep])

@@ -2,6 +2,16 @@ project('SAMRAI', 'cpp' , 'fortran', default_options : ['cpp_std=c++11'], licens
 
 m4 = find_program('m4')
 
+compiler_id = meson.get_compiler('cpp').get_id()
+
+if compiler_id == 'intel'
+    add_global_link_arguments('-lifcore', language:'cpp')
+elif compiler_id == 'gcc'
+    add_global_link_arguments('-lgfortran', language:'cpp')
+else
+    error('Unsuported compiler')
+endif
+
 m4_generator = generator(m4,
 			output  : '@BASENAME@.f',
 			capture : true,

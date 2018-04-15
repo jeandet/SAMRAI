@@ -63,8 +63,7 @@ mesh_fortran_sources = m4_generator.process(
 
 mesh = library('SAMRAI_mesh', sources:[mesh_fortran_sources, mesh_sources],
 	include_directories:SAMRAI_inc,
-	dependencies: [SAMRAI_pdat_dep, SAMRAI_xfer_dep, SAMRAI_tbox_dep, SAMRAI_hier_dep, SAMRAI_glob_dep],
-	link_args:['-lgfortran']
+	dependencies: [SAMRAI_pdat_dep, SAMRAI_xfer_dep, SAMRAI_tbox_dep, SAMRAI_hier_dep, SAMRAI_glob_dep]
 	)
 
 SAMRAI_mesh_dep = declare_dependency(link_with:mesh,

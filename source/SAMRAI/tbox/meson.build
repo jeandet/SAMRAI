@@ -106,4 +106,4 @@ tbox = library('SAMRAI_tbox', sources:tbox_sources,
 	dependencies:SAMRAI_glob_dep
 	)
 
-SAMRAI_tbox_dep = declare_dependency(link_with:tbox, dependencies:SAMRAI_glob_dep)
+SAMRAI_tbox_dep = declare_dependency(include_directories:SAMRAI_inc, link_with:tbox, dependencies:SAMRAI_glob_dep)

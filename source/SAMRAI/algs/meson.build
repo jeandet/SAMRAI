@@ -46,5 +46,5 @@ algs = library('SAMRAI_algs', sources:[algs_fortran_sources, algs_sources],
 	dependencies:[SAMRAI_mesh_dep, SAMRAI_hier_dep, SAMRAI_pdat_dep, SAMRAI_glob_dep]
 	)
 
-SAMRAI_algs_dep = declare_dependency(link_with:algs,
+SAMRAI_algs_dep = declare_dependency(include_directories:SAMRAI_inc, link_with:algs,
 	dependencies:[SAMRAI_mesh_dep, SAMRAI_hier_dep, SAMRAI_pdat_dep, SAMRAI_glob_dep])

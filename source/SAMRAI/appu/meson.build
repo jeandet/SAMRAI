@@ -21,8 +21,7 @@ appu_fortran_sources = m4_generator.process(
 
 appu = library('SAMRAI_appu', sources:[appu_fortran_sources, appu_sources],
 	include_directories:SAMRAI_inc,
-	dependencies: [SAMRAI_tbox_dep, SAMRAI_hier_dep, SAMRAI_pdat_dep, SAMRAI_glob_dep],
-	link_args:['-lgfortran']
+	dependencies: [SAMRAI_tbox_dep, SAMRAI_hier_dep, SAMRAI_pdat_dep, SAMRAI_glob_dep]
 	)
 
 SAMRAI_appu_dep = declare_dependency(link_with:appu,
