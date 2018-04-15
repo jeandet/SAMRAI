@@ -29,3 +29,16 @@ if get_option('with-mpi')
 endif
 
 subdir('source')
+
+SAMRAI_dep = declare_dependency( dependencies:[
+        SAMRAI_algs_dep,
+        SAMRAI_appu_dep,
+        SAMRAI_geom_dep,
+        SAMRAI_hier_dep,
+        SAMRAI_math_dep,
+        SAMRAI_mesh_dep,
+        SAMRAI_pdat_dep,
+        SAMRAI_solv_dep,
+        SAMRAI_tbox_dep,
+        SAMRAI_xfer_dep
+        ])
