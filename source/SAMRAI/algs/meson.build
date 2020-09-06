@@ -1,4 +1,4 @@
-algs_sources = ['TimeRefinementIntegrator.C',
+algs_sources_C = ['TimeRefinementIntegrator.C',
 	'TimeRefinementIntegratorConnectorWidthRequestor.C',
 	'TimeRefinementLevelStrategy.C',
 	'HyperbolicPatchStrategy.C',
@@ -40,6 +40,8 @@ algs_fortran_sources = m4_generator.process(
 	 'fortran/algs_upfluxsum3d.m4'
 	 ]
 )
+
+algs_sources = C_to_cpp_gen.process(algs_sources_C)
 
 algs = library('SAMRAI_algs', sources:[algs_fortran_sources, algs_sources],
 	include_directories:SAMRAI_inc,

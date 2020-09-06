@@ -1,4 +1,4 @@
-xfer_sources = ['BoxGeometryVariableFillPattern.C',
+xfer_sources_C = ['BoxGeometryVariableFillPattern.C',
 	'PatchInteriorVariableFillPattern.C',
 	'PatchLevelFullFillPattern.C',
 	'PatchLevelBorderFillPattern.C',
@@ -57,8 +57,7 @@ xfer_headers = ['BoxGeometryVariableFillPattern.h',
  'StandardRefineTransactionFactory.h',
  'VariableFillPattern.h']
 
-
-
+xfer_sources = C_to_cpp_gen.process(xfer_sources_C)
 
 xfer = library('SAMRAI_xfer', sources:[xfer_sources],
 	include_directories:SAMRAI_inc,

@@ -6,9 +6,15 @@
  endif
  conf_data.set('SAMRAI_MAXIMUM_DIMENSION', 3) # should add this as an option
 
- configure_file(input : '../../config/SAMRAI_config.h.meson.in',
+ configure_file(input : '../../config/SAMRAI_config.h.cmake.in',
                 output : 'SAMRAI_config.h',
+                format : 'cmake',
                 configuration : conf_data)
+
+FC_conf_data = configuration_data()
+FC_conf_data.set('CMAKE_FORTRAN_GLOBAL(name,NAME)', 'name##_')
+configure_file(output : 'FC.h',
+                configuration : FC_conf_data)
 
 subdir('tbox')
 subdir('hier')

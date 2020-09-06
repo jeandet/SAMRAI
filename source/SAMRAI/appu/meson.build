@@ -1,4 +1,4 @@
-appu_sources = ['BoundaryUtilityStrategy.C',
+appu_sources_C = ['BoundaryUtilityStrategy.C',
 	'VisItDataWriter.C',
 	'VisDerivedDataStrategy.C',
 	'VisMaterialsDataStrategy.C',
@@ -18,6 +18,8 @@ appu_headers = ['BoundaryUtilityStrategy.h',
 appu_fortran_sources = m4_generator.process(
 	['fortran/appu_cartbdry2d.m4', 'fortran/appu_cartbdry3d.m4']
 )
+
+appu_sources = C_to_cpp_gen.process(appu_sources_C)
 
 appu = library('SAMRAI_appu', sources:[appu_fortran_sources, appu_sources],
 	include_directories:SAMRAI_inc,

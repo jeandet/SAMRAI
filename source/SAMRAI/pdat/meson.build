@@ -1,4 +1,4 @@
-pdat_sources = ['CellComplexLinearTimeInterpolateOp.C',
+pdat_sources_C = ['CellComplexLinearTimeInterpolateOp.C',
 	'CellDoubleLinearTimeInterpolateOp.C',
 	'CellFloatLinearTimeInterpolateOp.C',
 	'EdgeComplexLinearTimeInterpolateOp.C',
@@ -220,6 +220,8 @@ pdat_fortran_sources = m4_generator.process(
  'fortran/pdat_lintimint3d.m4']
 
 )
+
+pdat_sources = C_to_cpp_gen.process(pdat_sources_C)
 
 pdat = library('SAMRAI_pdat', sources:[pdat_fortran_sources, pdat_sources],
 	include_directories:SAMRAI_inc,

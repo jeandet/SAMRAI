@@ -22,6 +22,13 @@ m4_generator = generator(m4,
                 	'-DFORTDIR=@CURRENT_SOURCE_DIR@/fortran',
                 	'@INPUT@'])
 
+C_to_cpp_gen = generator(
+	find_program('tools/scripts/c_to_cpp.py'),
+	output  : '@BASENAME@.cpp',
+	capture : true,
+	arguments : ['@INPUT@']
+	)
+
 
 SAMRAI_glob_dep = []
 if get_option('with-mpi')

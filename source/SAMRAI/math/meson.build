@@ -1,4 +1,4 @@
-math_sources = ['PatchSideDataOpsInteger.C',
+math_sources_C = ['PatchSideDataOpsInteger.C',
 	'PatchFaceDataOpsInteger.C',
 	'PatchEdgeDataOpsInteger.C',
 	'PatchCellDataOpsInteger.C',
@@ -90,6 +90,7 @@ math_headers = ['ArrayDataBasicOps.h',
  'PatchSideDataOpsInteger.h',
  'PatchSideDataOpsReal.h']
 
+math_sources = C_to_cpp_gen.process(math_sources_C)
 
 math = library('SAMRAI_math', sources:math_sources,
 	include_directories:SAMRAI_inc,

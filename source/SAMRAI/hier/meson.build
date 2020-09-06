@@ -1,4 +1,4 @@
-hier_sources = ['BaseGridGeometry.C',
+hier_sources_C = ['BaseGridGeometry.C',
 	'BlockId.C',
 	'BoxContainer.C',
 	'CoarseFineBoundary.C',
@@ -129,7 +129,7 @@ hier_headers = ['AssumedPartition.h',
  'VariableContext.h',
  'VariableDatabase.h']
 
-
+hier_sources = C_to_cpp_gen.process(hier_sources_C)
 
 hier = library('SAMRAI_hier', sources:hier_sources,
 	include_directories:SAMRAI_inc,

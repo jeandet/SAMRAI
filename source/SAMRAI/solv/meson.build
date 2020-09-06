@@ -1,4 +1,4 @@
-solv_sources = ['PoissonSpecifications.C',
+solv_sources_C = ['PoissonSpecifications.C',
 	'SNESAbstractFunctions.C',
 	'CVODEAbstractFunctions.C',
 	'CVODESolver.C',
@@ -57,6 +57,7 @@ solv_fortran_sources =['fortran/solv_cartesianrobinbchelper2d.f',
  'fortran/solv_cellpoissonhypresolver2d.f',
  'fortran/solv_cellpoissonhypresolver3d.f']
 
+solv_sources = C_to_cpp_gen.process(solv_sources_C)
 
 solv = library('SAMRAI_solv', sources:[solv_fortran_sources, solv_sources],
 	include_directories:SAMRAI_inc,

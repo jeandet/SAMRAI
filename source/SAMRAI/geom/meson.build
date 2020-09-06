@@ -1,4 +1,4 @@
-geom_sources = ['GridGeometry.C',
+geom_sources_C = ['GridGeometry.C',
 	'CartesianPatchGeometry.C',
 	'CartesianGridGeometry.C',
 	'CartesianCellDoubleLinearRefine.C',
@@ -78,6 +78,8 @@ geom_fortran_sources = m4_generator.process(
  'fortran/geom_cartrefine2d.m4',
  'fortran/geom_cartrefine3d.m4']
 )
+
+geom_sources = C_to_cpp_gen.process(geom_sources_C)
 
 geom = library('SAMRAI_geom', sources:[geom_fortran_sources, geom_sources],
 	include_directories:SAMRAI_inc,
